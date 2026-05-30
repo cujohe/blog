@@ -286,4 +286,4 @@ A: 可以。DeepTeam 支持任何 DeepEval 兼容的模型，包括 Anthropic Cl
 
 ## 📖 下一步
 
-你已经跑通了第一个红队测试。接下来深入 [第3章：漏洞类型详解](./03-vulnerabilities/)，了解 DeepTeam 支持的 50+ 种漏洞类型。
+你已经跑通了第一个红队测试。接下来深入 [第3章：漏洞类型详解](../03-vulnerabilities/)，了解 DeepTeam 支持的 50+ 种漏洞类型。

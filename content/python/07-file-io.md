@@ -223,4 +223,4 @@ with open("user.json", "r", encoding="utf-8") as f:
 
 ---
 
-👉 下一章：[**异常处理**](./08-error-handling/) —— 程序崩了怎么办
+👉 下一章：[**异常处理**](../08-error-handling/) —— 程序崩了怎么办
