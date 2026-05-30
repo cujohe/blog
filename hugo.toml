@@ -1,4 +1,4 @@
-baseURL = "https://cujohe.github.io/"
+baseURL = "https://cujohe.github.io/blog/"
 languageCode = "zh-cn"
 title = "Cujohe's Blog"
 theme = "PaperMod"
