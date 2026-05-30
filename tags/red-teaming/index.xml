@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Red-Teaming on Cujohe's Blog</title><link>https://cujohe.github.io/blog/tags/red-teaming/</link><description>Recent content in Red-Teaming on Cujohe's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://cujohe.github.io/blog/tags/red-teaming/index.xml" rel="self" type="application/rss+xml"/><item><title>第1章：LLM 红队测试概述</title><link>https://cujohe.github.io/blog/posts/deepteam/01-overview/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/01-overview/</guid><description>&lt;h2 id="11-什么是-llm-红队测试"&gt;1.1 什么是 LLM 红队测试？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Red-Teaming on Cujohe's Blog</title><link>https://cujohe.github.io/blog/tags/red-teaming/</link><description>Recent content in Red-Teaming on Cujohe's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://cujohe.github.io/blog/tags/red-teaming/index.xml" rel="self" type="application/rss+xml"/><item><title>第1章：LLM 红队测试概述</title><link>https://cujohe.github.io/blog/deepteam/01-overview/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/01-overview/</guid><description>&lt;h2 id="11-什么是-llm-红队测试"&gt;1.1 什么是 LLM 红队测试？&lt;/h2&gt;
 &lt;p&gt;在传统网络安全中，&lt;strong&gt;红队测试（Red Teaming）&lt;/strong&gt; 是指一组安全专家模拟真实攻击者的行为，对系统进行渗透测试，以发现安全漏洞。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;LLM 红队测试&lt;/strong&gt; 是将这一理念应用于大语言模型（LLM）系统。它不仅仅是测试模型本身的安全性，还包括：&lt;/p&gt;
 &lt;ul&gt;
@@ -71,7 +71,7 @@
 &lt;/table&gt;
 &lt;hr&gt;
 &lt;h2 id="13-deepteam-的解决方案"&gt;1.3 DeepTeam 的解决方案&lt;/h2&gt;
-&lt;p&gt;DeepTeam 的核心理念是 &lt;strong&gt;&amp;ldquo;用 AI 测试 AI&amp;rdquo;&lt;/strong&gt;——利用 LLM-as-a-Judge 的方式，自动生成攻击并评估结果。&lt;/p&gt;</description></item><item><title>第2章：快速开始</title><link>https://cujohe.github.io/blog/posts/deepteam/02-quickstart/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/02-quickstart/</guid><description>&lt;h2 id="21-环境准备"&gt;2.1 环境准备&lt;/h2&gt;
+&lt;p&gt;DeepTeam 的核心理念是 &lt;strong&gt;&amp;ldquo;用 AI 测试 AI&amp;rdquo;&lt;/strong&gt;——利用 LLM-as-a-Judge 的方式，自动生成攻击并评估结果。&lt;/p&gt;</description></item><item><title>第2章：快速开始</title><link>https://cujohe.github.io/blog/deepteam/02-quickstart/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/02-quickstart/</guid><description>&lt;h2 id="21-环境准备"&gt;2.1 环境准备&lt;/h2&gt;
 &lt;h3 id="安装"&gt;安装&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -U deepteam
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;依赖说明：&lt;/strong&gt;&lt;/p&gt;
@@ -131,7 +131,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; vulnerabilities&lt;span style="color:#f92672"&gt;=&lt;/span&gt;[Bias(types&lt;span style="color:#f92672"&gt;=&lt;/span&gt;[&lt;span style="color:#e6db74"&gt;&amp;#34;race&amp;#34;&lt;/span&gt;])],
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; attacks&lt;span style="color:#f92672"&gt;=&lt;/span&gt;[PromptInjection()]
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行：&lt;/p&gt;</description></item><item><title>第3章：漏洞类型详解</title><link>https://cujohe.github.io/blog/posts/deepteam/03-vulnerabilities/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/03-vulnerabilities/</guid><description>&lt;p&gt;DeepTeam 提供了 &lt;strong&gt;50+ 种&lt;/strong&gt; 预定义的漏洞类型，分为 7 大类。每个漏洞类型都带有详细的解释和内置的评判标准。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行：&lt;/p&gt;</description></item><item><title>第3章：漏洞类型详解</title><link>https://cujohe.github.io/blog/deepteam/03-vulnerabilities/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/03-vulnerabilities/</guid><description>&lt;p&gt;DeepTeam 提供了 &lt;strong&gt;50+ 种&lt;/strong&gt; 预定义的漏洞类型，分为 7 大类。每个漏洞类型都带有详细的解释和内置的评判标准。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="31-漏洞分类总览"&gt;3.1 漏洞分类总览&lt;/h2&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;DeepTeam 漏洞体系
@@ -187,7 +187,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
 &lt;h2 id="32-各类漏洞详解含实战代码"&gt;3.2 各类漏洞详解（含实战代码）&lt;/h2&gt;
 &lt;h3 id="321-pii-leakage个人信息泄露"&gt;3.2.1 PII Leakage（个人信息泄露）&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;是什么&lt;/strong&gt;：模型输出中泄露了姓名、邮箱、电话、身份证号等个人身份信息。&lt;/p&gt;</description></item><item><title>第4章：攻击技术</title><link>https://cujohe.github.io/blog/posts/deepteam/04-attacks/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/04-attacks/</guid><description>&lt;p&gt;如果说漏洞是&amp;quot;找什么&amp;quot;，攻击就是&amp;quot;怎么找&amp;quot;。DeepTeam 提供了 20+ 种对抗攻击技术，分为&lt;strong&gt;单轮&lt;/strong&gt;和&lt;strong&gt;多轮&lt;/strong&gt;两大类。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;是什么&lt;/strong&gt;：模型输出中泄露了姓名、邮箱、电话、身份证号等个人身份信息。&lt;/p&gt;</description></item><item><title>第4章：攻击技术</title><link>https://cujohe.github.io/blog/deepteam/04-attacks/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/04-attacks/</guid><description>&lt;p&gt;如果说漏洞是&amp;quot;找什么&amp;quot;，攻击就是&amp;quot;怎么找&amp;quot;。DeepTeam 提供了 20+ 种对抗攻击技术，分为&lt;strong&gt;单轮&lt;/strong&gt;和&lt;strong&gt;多轮&lt;/strong&gt;两大类。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="41-攻击技术概览"&gt;4.1 攻击技术概览&lt;/h2&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;攻击体系
@@ -230,7 +230,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
 &lt;h2 id="42-核心攻击原理"&gt;4.2 核心攻击原理&lt;/h2&gt;
 &lt;h3 id="421-为什么这些攻击有效"&gt;4.2.1 为什么这些攻击有效？&lt;/h3&gt;
-&lt;p&gt;LLM 的安全机制本质上是&lt;strong&gt;模式匹配&lt;/strong&gt;——训练过程中学到的&amp;quot;不应该回答&amp;quot;的模式。攻击技术的核心思路是&lt;strong&gt;打破这种模式匹配&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>第5章：安全框架</title><link>https://cujohe.github.io/blog/posts/deepteam/05-frameworks/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/05-frameworks/</guid><description>&lt;p&gt;手动挑选漏洞和攻击组合可以很灵活，但对于合规性审计和企业级安全评估，你需要遵循行业标准。DeepTeam 内置了多个 AI 安全框架的支持。&lt;/p&gt;
+&lt;p&gt;LLM 的安全机制本质上是&lt;strong&gt;模式匹配&lt;/strong&gt;——训练过程中学到的&amp;quot;不应该回答&amp;quot;的模式。攻击技术的核心思路是&lt;strong&gt;打破这种模式匹配&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>第5章：安全框架</title><link>https://cujohe.github.io/blog/deepteam/05-frameworks/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/05-frameworks/</guid><description>&lt;p&gt;手动挑选漏洞和攻击组合可以很灵活，但对于合规性审计和企业级安全评估，你需要遵循行业标准。DeepTeam 内置了多个 AI 安全框架的支持。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="51-内置框架一览"&gt;5.1 内置框架一览&lt;/h2&gt;
 &lt;table&gt;
@@ -350,7 +350,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# DeepTeam 自动选择对应的漏洞和攻击组合&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id="53-owasp-top-10-for-agents-2026"&gt;5.3 OWASP Top 10 for Agents 2026&lt;/h2&gt;
-&lt;p&gt;2026 年新增的 Agent 专用安全标准，针对自主 Agent 系统。&lt;/p&gt;</description></item><item><title>第6章：防护栏（Guardrails）</title><link>https://cujohe.github.io/blog/posts/deepteam/06-guardrails/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/06-guardrails/</guid><description>&lt;p&gt;红队测试帮你发现问题，但&lt;strong&gt;发现不等于解决&lt;/strong&gt;。DeepTeam 的 Guardrails 模块提供了 7 个生产级防护栏，让你能在用户输入和模型输出两端实时拦截恶意内容。&lt;/p&gt;
+&lt;p&gt;2026 年新增的 Agent 专用安全标准，针对自主 Agent 系统。&lt;/p&gt;</description></item><item><title>第6章：防护栏（Guardrails）</title><link>https://cujohe.github.io/blog/deepteam/06-guardrails/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/06-guardrails/</guid><description>&lt;p&gt;红队测试帮你发现问题，但&lt;strong&gt;发现不等于解决&lt;/strong&gt;。DeepTeam 的 Guardrails 模块提供了 7 个生产级防护栏，让你能在用户输入和模型输出两端实时拦截恶意内容。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="61-什么是-guardrails"&gt;6.1 什么是 Guardrails？&lt;/h2&gt;
 &lt;p&gt;Guardrails（防护栏/护栏）是在 LLM 系统的&lt;strong&gt;输入和输出端&lt;/strong&gt;部署的轻量级安全检查器。&lt;/p&gt;
@@ -568,7 +568,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;最佳实践：三者结合&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>第7章：高级主题</title><link>https://cujohe.github.io/blog/posts/deepteam/07-advanced/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/deepteam/07-advanced/</guid><description>&lt;p&gt;本章涵盖 DeepTeam 的进阶用法：自定义漏洞、CLI 模式、CI/CD 集成、模型配置等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最佳实践：三者结合&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>第7章：高级主题</title><link>https://cujohe.github.io/blog/deepteam/07-advanced/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/deepteam/07-advanced/</guid><description>&lt;p&gt;本章涵盖 DeepTeam 的进阶用法：自定义漏洞、CLI 模式、CI/CD 集成、模型配置等。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="71-自定义漏洞"&gt;7.1 自定义漏洞&lt;/h2&gt;
 &lt;p&gt;当内置的 50+ 漏洞不够用时，你可以定义自己的漏洞类型。&lt;/p&gt;

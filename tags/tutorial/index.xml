@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tutorial on Cujohe's Blog</title><link>https://cujohe.github.io/blog/tags/tutorial/</link><description>Recent content in Tutorial on Cujohe's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://cujohe.github.io/blog/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>第一章：程序是什么</title><link>https://cujohe.github.io/blog/posts/python/01-what-is-programming/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/01-what-is-programming/</guid><description>&lt;h2 id="11-从一个类比开始"&gt;1.1 从一个类比开始&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tutorial on Cujohe's Blog</title><link>https://cujohe.github.io/blog/tags/tutorial/</link><description>Recent content in Tutorial on Cujohe's Blog</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://cujohe.github.io/blog/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>第一章：程序是什么</title><link>https://cujohe.github.io/blog/python/01-what-is-programming/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/01-what-is-programming/</guid><description>&lt;h2 id="11-从一个类比开始"&gt;1.1 从一个类比开始&lt;/h2&gt;
 &lt;p&gt;你早上起床的流程：&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;1. 睁眼
 2. 如果 闹钟在响 → 关掉闹钟
@@ -55,7 +55,7 @@ CPU 执行机器码（010101010111...）
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2 id="13-你的第一个程序"&gt;1.3 你的第一个程序&lt;/h2&gt;
-&lt;p&gt;打开 VS Code，新建文件 &lt;code&gt;hello.py&lt;/code&gt;，输入：&lt;/p&gt;</description></item><item><title>第二章：变量与内存</title><link>https://cujohe.github.io/blog/posts/python/02-variables-and-memory/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/02-variables-and-memory/</guid><description>&lt;h2 id="21-变量就是贴标签"&gt;2.1 变量就是贴标签&lt;/h2&gt;
+&lt;p&gt;打开 VS Code，新建文件 &lt;code&gt;hello.py&lt;/code&gt;，输入：&lt;/p&gt;</description></item><item><title>第二章：变量与内存</title><link>https://cujohe.github.io/blog/python/02-variables-and-memory/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/02-variables-and-memory/</guid><description>&lt;h2 id="21-变量就是贴标签"&gt;2.1 变量就是贴标签&lt;/h2&gt;
 &lt;p&gt;想象计算机内存是一面巨大的墙，上面有几十亿个小格子。每个格子有一个门牌号（地址），能存一个数字。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;age &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;25&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这一行代码在底层做的事：&lt;/p&gt;
@@ -80,7 +80,7 @@ age → 指向那个存了 25 的内存地址
 执行 b = a → a ──→ [10] ←── b
 执行 a = 20 → a ──→ [20] b ──→ [10] （b 没变！）
 &lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;💡 &lt;strong&gt;核心认知&lt;/strong&gt;：Python 里的 &lt;code&gt;=&lt;/code&gt; 不是「放进去」，而是「重新贴标签」。这跟 C/Java 完全不同。&lt;/p&gt;</description></item><item><title>第三章：数据类型</title><link>https://cujohe.github.io/blog/posts/python/03-data-types/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/03-data-types/</guid><description>&lt;h2 id="31-为什么需要类型"&gt;3.1 为什么需要「类型」&lt;/h2&gt;
+&lt;p&gt;💡 &lt;strong&gt;核心认知&lt;/strong&gt;：Python 里的 &lt;code&gt;=&lt;/code&gt; 不是「放进去」，而是「重新贴标签」。这跟 C/Java 完全不同。&lt;/p&gt;</description></item><item><title>第三章：数据类型</title><link>https://cujohe.github.io/blog/python/03-data-types/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/03-data-types/</guid><description>&lt;h2 id="31-为什么需要类型"&gt;3.1 为什么需要「类型」&lt;/h2&gt;
 &lt;p&gt;计算机底层只有 0 和 1。同样一串 0/1，可以是数字 65，也可以是字母 &amp;lsquo;A&amp;rsquo;。&lt;strong&gt;类型&lt;/strong&gt;就是告诉计算机：「请用这种视角来解读这一串二进制。」&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 同一个值，不同操作结果不同&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;
@@ -134,7 +134,7 @@ age → 指向那个存了 25 的内存地址
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(type(&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;)) &lt;span style="color:#75715e"&gt;# &amp;lt;class &amp;#39;bool&amp;#39;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id="33-整数int没有上限的数字"&gt;3.3 整数（int）：没有上限的数字&lt;/h2&gt;
-&lt;p&gt;Python 的 int 有一个其他语言羡慕的特点：&lt;/p&gt;</description></item><item><title>第四章：条件与循环</title><link>https://cujohe.github.io/blog/posts/python/04-control-flow/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/04-control-flow/</guid><description>&lt;h2 id="41-if-语句让程序做选择"&gt;4.1 if 语句：让程序做选择&lt;/h2&gt;
+&lt;p&gt;Python 的 int 有一个其他语言羡慕的特点：&lt;/p&gt;</description></item><item><title>第四章：条件与循环</title><link>https://cujohe.github.io/blog/python/04-control-flow/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/04-control-flow/</guid><description>&lt;h2 id="41-if-语句让程序做选择"&gt;4.1 if 语句：让程序做选择&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;temperature &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; temperature &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;35&lt;/span&gt;:
@@ -164,7 +164,7 @@ age → 指向那个存了 25 的内存地址
 &lt;h3 id="412-条件判断的底层"&gt;4.1.2 条件判断的底层&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; x &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Python 执行这行时的流程：&lt;/p&gt;</description></item><item><title>第五章：函数</title><link>https://cujohe.github.io/blog/posts/python/05-functions/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/05-functions/</guid><description>&lt;h2 id="51-为什么需要函数"&gt;5.1 为什么需要函数&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Python 执行这行时的流程：&lt;/p&gt;</description></item><item><title>第五章：函数</title><link>https://cujohe.github.io/blog/python/05-functions/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/05-functions/</guid><description>&lt;h2 id="51-为什么需要函数"&gt;5.1 为什么需要函数&lt;/h2&gt;
 &lt;p&gt;没函数之前，代码是这样的：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 计算圆面积（半径 3）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;area1 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;3.14&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt; &lt;span style="color:#f92672"&gt;**&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
@@ -205,7 +205,7 @@ age → 指向那个存了 25 的内存地址
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; add(&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt;) &lt;span style="color:#75715e"&gt;# x 接到了 return 扔出来的 7&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(x) &lt;span style="color:#75715e"&gt;# 7&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;没写 return 的函数，默认返回 &lt;code&gt;None&lt;/code&gt;：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>第六章：列表、字典、集合</title><link>https://cujohe.github.io/blog/posts/python/06-collections/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/06-collections/</guid><description>&lt;h2 id="61-列表list有序的数据容器"&gt;6.1 列表（list）：有序的数据容器&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;没写 return 的函数，默认返回 &lt;code&gt;None&lt;/code&gt;：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>第六章：列表、字典、集合</title><link>https://cujohe.github.io/blog/python/06-collections/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/06-collections/</guid><description>&lt;h2 id="61-列表list有序的数据容器"&gt;6.1 列表（list）：有序的数据容器&lt;/h2&gt;
 &lt;p&gt;列表是 Python 里最常用的数据结构。它是一串有序的值，可以随时增删改。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;fruits &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [&lt;span style="color:#e6db74"&gt;&amp;#34;苹果&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;香蕉&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;橙子&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;葡萄&amp;#34;&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(fruits[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]) &lt;span style="color:#75715e"&gt;# 苹果&lt;/span&gt;
@@ -235,7 +235,7 @@ age → 指向那个存了 25 的内存地址
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sorted(nums) &lt;span style="color:#75715e"&gt;# 返回新排序列表，原列表不变&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nums&lt;span style="color:#f92672"&gt;.&lt;/span&gt;sort(reverse&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;)&lt;span style="color:#75715e"&gt;# 降序 [5,2,1]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="612-列表底层原理"&gt;6.1.2 列表底层原理&lt;/h3&gt;
-&lt;p&gt;列表在 C 层面是一个&lt;strong&gt;动态数组&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>第七章：文件读写</title><link>https://cujohe.github.io/blog/posts/python/07-file-io/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/07-file-io/</guid><description>&lt;h2 id="71-为什么需要文件"&gt;7.1 为什么需要文件&lt;/h2&gt;
+&lt;p&gt;列表在 C 层面是一个&lt;strong&gt;动态数组&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>第七章：文件读写</title><link>https://cujohe.github.io/blog/python/07-file-io/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/07-file-io/</guid><description>&lt;h2 id="71-为什么需要文件"&gt;7.1 为什么需要文件&lt;/h2&gt;
 &lt;p&gt;到目前为止，你程序里所有的数据都活在内存里——程序一关，什么都没了。文件让你能把数据&lt;strong&gt;持久化&lt;/strong&gt;到硬盘上。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="72-打开--操作--关闭"&gt;7.2 打开 → 操作 → 关闭&lt;/h2&gt;
@@ -297,7 +297,7 @@ age → 指向那个存了 25 的内存地址
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;加 &lt;code&gt;b&lt;/code&gt; 表示二进制模式：&lt;code&gt;'rb'&lt;/code&gt;、&lt;code&gt;'wb'&lt;/code&gt;（用于图片、视频等）。&lt;/p&gt;</description></item><item><title>第八章：异常处理</title><link>https://cujohe.github.io/blog/posts/python/08-error-handling/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/08-error-handling/</guid><description>&lt;h2 id="81-程序为什么会崩"&gt;8.1 程序为什么会崩&lt;/h2&gt;
+&lt;p&gt;加 &lt;code&gt;b&lt;/code&gt; 表示二进制模式：&lt;code&gt;'rb'&lt;/code&gt;、&lt;code&gt;'wb'&lt;/code&gt;（用于图片、视频等）。&lt;/p&gt;</description></item><item><title>第八章：异常处理</title><link>https://cujohe.github.io/blog/python/08-error-handling/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/08-error-handling/</guid><description>&lt;h2 id="81-程序为什么会崩"&gt;8.1 程序为什么会崩&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 正常代码&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;num &lt;span style="color:#f92672"&gt;=&lt;/span&gt; int(input(&lt;span style="color:#e6db74"&gt;&amp;#34;输入一个数字：&amp;#34;&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(&lt;span style="color:#ae81ff"&gt;100&lt;/span&gt; &lt;span style="color:#f92672"&gt;/&lt;/span&gt; num)
@@ -377,7 +377,7 @@ ZeroDivisionError: division by zero
 &lt;/table&gt;
 &lt;hr&gt;
 &lt;h2 id="85-实战健壮的猜数字游戏"&gt;8.5 实战：健壮的猜数字游戏&lt;/h2&gt;
-&lt;p&gt;用异常处理加固第四章的猜数字游戏：&lt;/p&gt;</description></item><item><title>第九章：模块与包</title><link>https://cujohe.github.io/blog/posts/python/09-modules-packages/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/09-modules-packages/</guid><description>&lt;h2 id="91-什么是模块"&gt;9.1 什么是模块&lt;/h2&gt;
+&lt;p&gt;用异常处理加固第四章的猜数字游戏：&lt;/p&gt;</description></item><item><title>第九章：模块与包</title><link>https://cujohe.github.io/blog/python/09-modules-packages/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/09-modules-packages/</guid><description>&lt;h2 id="91-什么是模块"&gt;9.1 什么是模块&lt;/h2&gt;
 &lt;p&gt;任何一个 &lt;code&gt;.py&lt;/code&gt; 文件就是一个模块。模块就是&lt;strong&gt;把相关的函数和变量封装在一起&lt;/strong&gt;。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;project/
 ├── main.py ← 主程序
@@ -420,7 +420,7 @@ ZeroDivisionError: division by zero
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; plt &lt;span style="color:#75715e"&gt;# 画图库的子模块别名&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id="92-模块搜索路径"&gt;9.2 模块搜索路径&lt;/h2&gt;
-&lt;p&gt;当你 &lt;code&gt;import utils&lt;/code&gt; 时，Python 按顺序在这些地方找：&lt;/p&gt;</description></item><item><title>第十章：网络请求</title><link>https://cujohe.github.io/blog/posts/python/10-web-requests/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/10-web-requests/</guid><description>&lt;h2 id="101-http互联网的通用语言"&gt;10.1 HTTP：互联网的通用语言&lt;/h2&gt;
+&lt;p&gt;当你 &lt;code&gt;import utils&lt;/code&gt; 时，Python 按顺序在这些地方找：&lt;/p&gt;</description></item><item><title>第十章：网络请求</title><link>https://cujohe.github.io/blog/python/10-web-requests/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/10-web-requests/</guid><description>&lt;h2 id="101-http互联网的通用语言"&gt;10.1 HTTP：互联网的通用语言&lt;/h2&gt;
 &lt;p&gt;你每天上网的过程，本质上都是：&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;你的浏览器（客户端） www.example.com（服务器）
 │ │
@@ -473,7 +473,7 @@ ZeroDivisionError: division by zero
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;except&lt;/span&gt; requests&lt;span style="color:#f92672"&gt;.&lt;/span&gt;RequestException &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; e:
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#e6db74"&gt;f&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;请求异常：&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;e&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;⚠️ &lt;strong&gt;永远设 timeout&lt;/strong&gt;。不设 timeout 的 requests.get 可能永远等下去——这在生产环境里是事故。&lt;/p&gt;</description></item><item><title>第十一章：数据处理</title><link>https://cujohe.github.io/blog/posts/python/11-data-processing/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/11-data-processing/</guid><description>&lt;h2 id="111-python-vs-excel"&gt;11.1 Python vs Excel&lt;/h2&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;永远设 timeout&lt;/strong&gt;。不设 timeout 的 requests.get 可能永远等下去——这在生产环境里是事故。&lt;/p&gt;</description></item><item><title>第十一章：数据处理</title><link>https://cujohe.github.io/blog/python/11-data-processing/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/11-data-processing/</guid><description>&lt;h2 id="111-python-vs-excel"&gt;11.1 Python vs Excel&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -558,7 +558,7 @@ ZeroDivisionError: division by zero
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df[&lt;span style="color:#e6db74"&gt;&amp;#34;高薪&amp;#34;&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df[&lt;span style="color:#e6db74"&gt;&amp;#34;工资&amp;#34;&lt;/span&gt;] &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;18000&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 自动变成布尔列&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id="114-实战从-excel-读取处理后写回"&gt;11.4 实战①：从 Excel 读取，处理后写回&lt;/h2&gt;
-&lt;p&gt;假设有一个 &lt;code&gt;sales.xlsx&lt;/code&gt;：&lt;/p&gt;</description></item><item><title>第十二章：自动化脚本</title><link>https://cujohe.github.io/blog/posts/python/12-automation/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/12-automation/</guid><description>&lt;h2 id="121-自动化的本质"&gt;12.1 自动化的本质&lt;/h2&gt;
+&lt;p&gt;假设有一个 &lt;code&gt;sales.xlsx&lt;/code&gt;：&lt;/p&gt;</description></item><item><title>第十二章：自动化脚本</title><link>https://cujohe.github.io/blog/python/12-automation/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/12-automation/</guid><description>&lt;h2 id="121-自动化的本质"&gt;12.1 自动化的本质&lt;/h2&gt;
 &lt;p&gt;程序能替你做的所有事情，都遵循这个模式：&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;触发器（什么时候做） → 执行（做什么） → 结果（输出/通知）
 &lt;/code&gt;&lt;/pre&gt;&lt;table&gt;
@@ -690,7 +690,7 @@ ZeroDivisionError: division by zero
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# watch_folder(&amp;#34;~/Downloads&amp;#34;, print_file_info)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id="125-实战命令行参数工具"&gt;12.5 实战④：命令行参数工具&lt;/h2&gt;
-&lt;p&gt;用 &lt;code&gt;argparse&lt;/code&gt; 把脚本变成专业的命令行工具：&lt;/p&gt;</description></item><item><title>第十三章：测试</title><link>https://cujohe.github.io/blog/posts/python/13-testing/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/13-testing/</guid><description>&lt;h2 id="131-为什么要写测试"&gt;13.1 为什么要写测试&lt;/h2&gt;
+&lt;p&gt;用 &lt;code&gt;argparse&lt;/code&gt; 把脚本变成专业的命令行工具：&lt;/p&gt;</description></item><item><title>第十三章：测试</title><link>https://cujohe.github.io/blog/python/13-testing/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/13-testing/</guid><description>&lt;h2 id="131-为什么要写测试"&gt;13.1 为什么要写测试&lt;/h2&gt;
 &lt;p&gt;没有测试的开发流程：&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;写代码 → 手动跑一下 → 看起来没错 → 上线 → 用户发现 bug → 修 → 又引入新 bug → ...
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;有测试的开发流程：&lt;/p&gt;
@@ -729,7 +729,7 @@ ZeroDivisionError: division by zero
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;import&lt;/span&gt; pytest
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;with&lt;/span&gt; pytest&lt;span style="color:#f92672"&gt;.&lt;/span&gt;raises(&lt;span style="color:#a6e22e"&gt;ValueError&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;match&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;除数不能为零&amp;#34;&lt;/span&gt;):
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; divide(&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行：&lt;/p&gt;</description></item><item><title>第十四章：调试</title><link>https://cujohe.github.io/blog/posts/python/14-debugging/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/14-debugging/</guid><description>&lt;h2 id="141-调试的本质"&gt;14.1 调试的本质&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行：&lt;/p&gt;</description></item><item><title>第十四章：调试</title><link>https://cujohe.github.io/blog/python/14-debugging/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/14-debugging/</guid><description>&lt;h2 id="141-调试的本质"&gt;14.1 调试的本质&lt;/h2&gt;
 &lt;p&gt;调试不是「找 bug」——是&lt;strong&gt;验证并修正你对代码行为的假设&lt;/strong&gt;。&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;你心里想的：「这行代码应该输出 5」
 实际发生的：「输出了 None」
@@ -811,7 +811,7 @@ ZeroDivisionError: division by zero
 &lt;/table&gt;
 &lt;hr&gt;
 &lt;h2 id="145-专业调试pdb-和-breakpoint"&gt;14.5 专业调试：pdb 和 breakpoint()&lt;/h2&gt;
-&lt;p&gt;Python 内置了一个&lt;strong&gt;交互式调试器&lt;/strong&gt;，让你可以在代码任意位置「暂停」并检查状态。&lt;/p&gt;</description></item><item><title>第十五章：Git 基础</title><link>https://cujohe.github.io/blog/posts/python/15-git-basics/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/posts/python/15-git-basics/</guid><description>&lt;h2 id="151-git-是什么"&gt;15.1 Git 是什么&lt;/h2&gt;
+&lt;p&gt;Python 内置了一个&lt;strong&gt;交互式调试器&lt;/strong&gt;，让你可以在代码任意位置「暂停」并检查状态。&lt;/p&gt;</description></item><item><title>第十五章：Git 基础</title><link>https://cujohe.github.io/blog/python/15-git-basics/</link><pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate><guid>https://cujohe.github.io/blog/python/15-git-basics/</guid><description>&lt;h2 id="151-git-是什么"&gt;15.1 Git 是什么&lt;/h2&gt;
 &lt;p&gt;Git 是&lt;strong&gt;代码的时光机&lt;/strong&gt;——它记录你代码的每一次修改，让你可以：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;回到过去的任意版本&lt;/li&gt;
