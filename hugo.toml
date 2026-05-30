@@ -1,0 +1,22 @@
+baseURL = "https://cujohe.github.io/"
+languageCode = "zh-cn"
+title = "Cujohe's Blog"
+theme = "PaperMod"
+
+[params]
+  description = "学习、思考、投资"
+  author = "cujohe"
+
+  [params.homeInfoParams]
+    Title = "Hi there 👋"
+    Content = "记录学习、分析与投资。由 Obsidian 驱动，Hugo 构建。"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/cujohe"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
