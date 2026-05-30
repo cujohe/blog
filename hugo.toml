@@ -18,11 +18,11 @@ mainSections = ["python", "deepteam"]
     
     [[params.profileMode.buttons]]
       name = "🐍 Python 完全教程"
-      url = "/python/"
+      url = "/blog/python/"
 
     [[params.profileMode.buttons]]
       name = "🔴 DeepTeam 红队测试"
-      url = "/deepteam/"
+      url = "/blog/deepteam/"
 
   # 社交图标
   [[params.socialIcons]]
