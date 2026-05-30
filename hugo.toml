@@ -3,39 +3,44 @@ languageCode = "zh-cn"
 title = "Cujohe's Blog"
 theme = "PaperMod"
 
-# PaperMod: 首页展示这些 section 的文章
 mainSections = ["python", "deepteam", "java"]
 
 [params]
   description = "学习、思考、记录"
   author = "cujohe"
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
 
-  # 首页 Profile 模式 —— 干净的导航页
+  # ========== 首页 ==========
   [params.profileMode]
     enabled = true
-    title = "Cujohe's Blog"
-    subtitle = "学习、思考、记录 | Obsidian 驱动，Hugo 构建"
-    
+    title = "👋 Hey, I'm Cujohe"
+    subtitle = "持续学习，持续记录 · Obsidian 思考，Hugo 分享"
+    imageUrl = "https://github.com/cujohe.png"
+    imageWidth = 120
+    imageHeight = 120
+    imageTitle = "cujohe"
+
     [[params.profileMode.buttons]]
       name = "🐍 Python 完全教程"
       url = "/blog/python/"
 
     [[params.profileMode.buttons]]
-      name = "🔴 DeepTeam 红队测试"
-      url = "/blog/deepteam/"
-
-    [[params.profileMode.buttons]]
       name = "☕ Java 从零开始"
       url = "/blog/java/"
 
-  # 社交图标
+    [[params.profileMode.buttons]]
+      name = "🔴 DeepTeam 红队测试"
+      url = "/blog/deepteam/"
+
+  # ========== 社交图标 ==========
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/cujohe"
 
-  # 开启面包屑
-  ShowBreadCrumbs = true
-  ShowPostNavLinks = true
+  [[params.socialIcons]]
+    name = "rss"
+    url = "https://cujohe.github.io/blog/index.xml"
 
 [taxonomies]
   category = "categories"
