@@ -163,4 +163,4 @@ risk_assessment = red_team(
 
 ## 📖 下一步
 
-了解了安全框架后，进入 [第6章：防护栏（Guardrails）](./06-guardrails.md)，学习如何将红队测试的成果转化为生产环境的实时防护。
+了解了安全框架后，进入 [第6章：防护栏（Guardrails）](./06-guardrails/)，学习如何将红队测试的成果转化为生产环境的实时防护。

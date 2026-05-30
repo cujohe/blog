@@ -223,4 +223,4 @@ deactivate
 
 下一步是**真正能干活了**——网络请求、数据处理、自动化脚本。
 
-👉 进入第三阶段：[**网络请求**](../stage-03-applications/10-web-requests.md)
+👉 进入第三阶段：[**网络请求**](../10-web-requests/)

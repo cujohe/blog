@@ -325,4 +325,4 @@ risk_assessment = red_team(
 
 ## 📖 下一步
 
-掌握了攻击技术后，进入 [第5章：安全框架](./05-frameworks.md)，了解如何用行业标准（OWASP、NIST 等）系统化地组织你的红队测试。
+掌握了攻击技术后，进入 [第5章：安全框架](./05-frameworks/)，了解如何用行业标准（OWASP、NIST 等）系统化地组织你的红队测试。
