@@ -1,0 +1,230 @@
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>第十一章：数据处理 | Cujohe's Blog</title><meta name=keywords content="python,tutorial"><meta name=description content='11.1 Python vs Excel
+
+	
+			
+					场景
+					Excel
+					Python
+			
+	
+	
+			
+					几百行数据，做个图表
+					✅ 适合
+					杀鸡用牛刀
+			
+			
+					几万行数据，多表关联
+					卡到崩溃
+					✅ 秒出结果
+			
+			
+					每个月做同样的报表
+					手动操作
+					✅ 脚本一次写完，月月自动跑
+			
+			
+					数据来源是 API/数据库
+					不好搞
+					✅ 直接读
+			
+	
+
+
+💡 Python 不是要替代 Excel，而是做 Excel 做不了的事儿。
+
+
+11.2 pandas：数据分析的瑞士军刀
+pip install pandas openpyxl
+pandas 的核心概念就两个：
+
+Series：一列数据（带行标签）
+DataFrame：一张表（多列 Series 拼在一起）
+
+import pandas as pd
+
+# 从字典创建 DataFrame
+data = {
+    "姓名": ["张三", "李四", "王五", "赵六"],
+    "年龄": [25, 30, 28, 35],
+    "城市": ["北京", "上海", "广州", "深圳"],
+    "工资": [15000, 20000, 18000, 25000]
+}
+
+df = pd.DataFrame(data)
+print(df)
+   姓名  年龄  城市    工资
+0  张三  25  北京  15000
+1  李四  30  上海  20000
+2  王五  28  广州  18000
+3  赵六  35  深圳  25000
+
+11.3 DataFrame 基本操作
+# 查看基本信息
+df.head(2)           # 前两行
+df.shape             # (4, 4) — 4 行 4 列
+df.info()            # 每列的数据类型和非空数量
+df.describe()        # 数值列的统计摘要（均值、标准差等）
+
+# 选择列
+df["姓名"]           # 返回 Series
+df[["姓名", "工资"]]  # 返回 DataFrame（多列）
+
+# 筛选行
+df[df["年龄"] > 28]              # 年龄大于 28 的
+df[df["城市"] == "北京"]          # 北京的员工
+df[(df["年龄"] > 25) & (df["工资"] > 18000)]  # 两个条件
+
+# 排序
+df.sort_values("工资", ascending=False)  # 按工资降序
+
+# 新增列
+df["年薪"] = df["工资"] * 12
+df["高薪"] = df["工资"] > 18000  # 自动变成布尔列
+
+11.4 实战①：从 Excel 读取，处理后写回
+假设有一个 sales.xlsx：'><meta name=author content="cujohe"><link rel=canonical href=https://cujohe.github.io/blog/posts/python/11-data-processing/><link crossorigin=anonymous href=/blog/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as=style><link rel=icon href=https://cujohe.github.io/blog/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://cujohe.github.io/blog/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://cujohe.github.io/blog/favicon-32x32.png><link rel=apple-touch-icon href=https://cujohe.github.io/blog/apple-touch-icon.png><link rel=mask-icon href=https://cujohe.github.io/blog/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://cujohe.github.io/blog/posts/python/11-data-processing/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://cujohe.github.io/blog/posts/python/11-data-processing/"><meta property="og:site_name" content="Cujohe's Blog"><meta property="og:title" content="第十一章：数据处理"><meta property="og:description" content='11.1 Python vs Excel 场景 Excel Python 几百行数据，做个图表 ✅ 适合 杀鸡用牛刀 几万行数据，多表关联 卡到崩溃 ✅ 秒出结果 每个月做同样的报表 手动操作 ✅ 脚本一次写完，月月自动跑 数据来源是 API/数据库 不好搞 ✅ 直接读 💡 Python 不是要替代 Excel，而是做 Excel 做不了的事儿。
+11.2 pandas：数据分析的瑞士军刀 pip install pandas openpyxl pandas 的核心概念就两个：
+Series：一列数据（带行标签） DataFrame：一张表（多列 Series 拼在一起） import pandas as pd # 从字典创建 DataFrame data = { "姓名": ["张三", "李四", "王五", "赵六"], "年龄": [25, 30, 28, 35], "城市": ["北京", "上海", "广州", "深圳"], "工资": [15000, 20000, 18000, 25000] } df = pd.DataFrame(data) print(df) 姓名 年龄 城市 工资 0 张三 25 北京 15000 1 李四 30 上海 20000 2 王五 28 广州 18000 3 赵六 35 深圳 25000 11.3 DataFrame 基本操作 # 查看基本信息 df.head(2) # 前两行 df.shape # (4, 4) — 4 行 4 列 df.info() # 每列的数据类型和非空数量 df.describe() # 数值列的统计摘要（均值、标准差等） # 选择列 df["姓名"] # 返回 Series df[["姓名", "工资"]] # 返回 DataFrame（多列） # 筛选行 df[df["年龄"] > 28] # 年龄大于 28 的 df[df["城市"] == "北京"] # 北京的员工 df[(df["年龄"] > 25) & (df["工资"] > 18000)] # 两个条件 # 排序 df.sort_values("工资", ascending=False) # 按工资降序 # 新增列 df["年薪"] = df["工资"] * 12 df["高薪"] = df["工资"] > 18000 # 自动变成布尔列 11.4 实战①：从 Excel 读取，处理后写回 假设有一个 sales.xlsx：'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-05-30T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-30T00:00:00+00:00"><meta property="article:tag" content="Python"><meta property="article:tag" content="Tutorial"><meta name=twitter:card content="summary"><meta name=twitter:title content="第十一章：数据处理"><meta name=twitter:description content='11.1 Python vs Excel 场景 Excel Python 几百行数据，做个图表 ✅ 适合 杀鸡用牛刀 几万行数据，多表关联 卡到崩溃 ✅ 秒出结果 每个月做同样的报表 手动操作 ✅ 脚本一次写完，月月自动跑 数据来源是 API/数据库 不好搞 ✅ 直接读 💡 Python 不是要替代 Excel，而是做 Excel 做不了的事儿。
+11.2 pandas：数据分析的瑞士军刀 pip install pandas openpyxl pandas 的核心概念就两个：
+Series：一列数据（带行标签） DataFrame：一张表（多列 Series 拼在一起） import pandas as pd # 从字典创建 DataFrame data = { "姓名": ["张三", "李四", "王五", "赵六"], "年龄": [25, 30, 28, 35], "城市": ["北京", "上海", "广州", "深圳"], "工资": [15000, 20000, 18000, 25000] } df = pd.DataFrame(data) print(df) 姓名 年龄 城市 工资 0 张三 25 北京 15000 1 李四 30 上海 20000 2 王五 28 广州 18000 3 赵六 35 深圳 25000 11.3 DataFrame 基本操作 # 查看基本信息 df.head(2) # 前两行 df.shape # (4, 4) — 4 行 4 列 df.info() # 每列的数据类型和非空数量 df.describe() # 数值列的统计摘要（均值、标准差等） # 选择列 df["姓名"] # 返回 Series df[["姓名", "工资"]] # 返回 DataFrame（多列） # 筛选行 df[df["年龄"] > 28] # 年龄大于 28 的 df[df["城市"] == "北京"] # 北京的员工 df[(df["年龄"] > 25) & (df["工资"] > 18000)] # 两个条件 # 排序 df.sort_values("工资", ascending=False) # 按工资降序 # 新增列 df["年薪"] = df["工资"] * 12 df["高薪"] = df["工资"] > 18000 # 自动变成布尔列 11.4 实战①：从 Excel 读取，处理后写回 假设有一个 sales.xlsx：'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://cujohe.github.io/blog/posts/"},{"@type":"ListItem","position":2,"name":"第十一章：数据处理","item":"https://cujohe.github.io/blog/posts/python/11-data-processing/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"第十一章：数据处理","name":"第十一章：数据处理","description":"11.1 Python vs Excel 场景 Excel Python 几百行数据，做个图表 ✅ 适合 杀鸡用牛刀 几万行数据，多表关联 卡到崩溃 ✅ 秒出结果 每个月做同样的报表 手动操作 ✅ 脚本一次写完，月月自动跑 数据来源是 API/数据库 不好搞 ✅ 直接读 💡 Python 不是要替代 Excel，而是做 Excel 做不了的事儿。\n11.2 pandas：数据分析的瑞士军刀 pip install pandas openpyxl pandas 的核心概念就两个：\nSeries：一列数据（带行标签） DataFrame：一张表（多列 Series 拼在一起） import pandas as pd # 从字典创建 DataFrame data = { \u0026#34;姓名\u0026#34;: [\u0026#34;张三\u0026#34;, \u0026#34;李四\u0026#34;, \u0026#34;王五\u0026#34;, \u0026#34;赵六\u0026#34;], \u0026#34;年龄\u0026#34;: [25, 30, 28, 35], \u0026#34;城市\u0026#34;: [\u0026#34;北京\u0026#34;, \u0026#34;上海\u0026#34;, \u0026#34;广州\u0026#34;, \u0026#34;深圳\u0026#34;], \u0026#34;工资\u0026#34;: [15000, 20000, 18000, 25000] } df = pd.DataFrame(data) print(df) 姓名 年龄 城市 工资 0 张三 25 北京 15000 1 李四 30 上海 20000 2 王五 28 广州 18000 3 赵六 35 深圳 25000 11.3 DataFrame 基本操作 # 查看基本信息 df.head(2) # 前两行 df.shape # (4, 4) — 4 行 4 列 df.info() # 每列的数据类型和非空数量 df.describe() # 数值列的统计摘要（均值、标准差等） # 选择列 df[\u0026#34;姓名\u0026#34;] # 返回 Series df[[\u0026#34;姓名\u0026#34;, \u0026#34;工资\u0026#34;]] # 返回 DataFrame（多列） # 筛选行 df[df[\u0026#34;年龄\u0026#34;] \u0026gt; 28] # 年龄大于 28 的 df[df[\u0026#34;城市\u0026#34;] == \u0026#34;北京\u0026#34;] # 北京的员工 df[(df[\u0026#34;年龄\u0026#34;] \u0026gt; 25) \u0026amp; (df[\u0026#34;工资\u0026#34;] \u0026gt; 18000)] # 两个条件 # 排序 df.sort_values(\u0026#34;工资\u0026#34;, ascending=False) # 按工资降序 # 新增列 df[\u0026#34;年薪\u0026#34;] = df[\u0026#34;工资\u0026#34;] * 12 df[\u0026#34;高薪\u0026#34;] = df[\u0026#34;工资\u0026#34;] \u0026gt; 18000 # 自动变成布尔列 11.4 实战①：从 Excel 读取，处理后写回 假设有一个 sales.xlsx：\n","keywords":["python","tutorial"],"articleBody":"11.1 Python vs Excel 场景 Excel Python 几百行数据，做个图表 ✅ 适合 杀鸡用牛刀 几万行数据，多表关联 卡到崩溃 ✅ 秒出结果 每个月做同样的报表 手动操作 ✅ 脚本一次写完，月月自动跑 数据来源是 API/数据库 不好搞 ✅ 直接读 💡 Python 不是要替代 Excel，而是做 Excel 做不了的事儿。\n11.2 pandas：数据分析的瑞士军刀 pip install pandas openpyxl pandas 的核心概念就两个：\nSeries：一列数据（带行标签） DataFrame：一张表（多列 Series 拼在一起） import pandas as pd # 从字典创建 DataFrame data = { \"姓名\": [\"张三\", \"李四\", \"王五\", \"赵六\"], \"年龄\": [25, 30, 28, 35], \"城市\": [\"北京\", \"上海\", \"广州\", \"深圳\"], \"工资\": [15000, 20000, 18000, 25000] } df = pd.DataFrame(data) print(df) 姓名 年龄 城市 工资 0 张三 25 北京 15000 1 李四 30 上海 20000 2 王五 28 广州 18000 3 赵六 35 深圳 25000 11.3 DataFrame 基本操作 # 查看基本信息 df.head(2) # 前两行 df.shape # (4, 4) — 4 行 4 列 df.info() # 每列的数据类型和非空数量 df.describe() # 数值列的统计摘要（均值、标准差等） # 选择列 df[\"姓名\"] # 返回 Series df[[\"姓名\", \"工资\"]] # 返回 DataFrame（多列） # 筛选行 df[df[\"年龄\"] \u003e 28] # 年龄大于 28 的 df[df[\"城市\"] == \"北京\"] # 北京的员工 df[(df[\"年龄\"] \u003e 25) \u0026 (df[\"工资\"] \u003e 18000)] # 两个条件 # 排序 df.sort_values(\"工资\", ascending=False) # 按工资降序 # 新增列 df[\"年薪\"] = df[\"工资\"] * 12 df[\"高薪\"] = df[\"工资\"] \u003e 18000 # 自动变成布尔列 11.4 实战①：从 Excel 读取，处理后写回 假设有一个 sales.xlsx：\n日期 产品 数量 单价 2024-01-01 A 10 100 2024-01-02 B 5 200 … … … … import pandas as pd # 读 Excel df = pd.read_excel(\"sales.xlsx\") # 计算销售额 df[\"销售额\"] = df[\"数量\"] * df[\"单价\"] # 按产品汇总 summary = df.groupby(\"产品\").agg( 总销量=(\"数量\", \"sum\"), 总销售额=(\"销售额\", \"sum\"), 平均单价=(\"单价\", \"mean\") ).reset_index() # 加一行「合计」 summary.loc[\"合计\"] = summary.select_dtypes(include=\"number\").sum() summary.at[\"合计\", \"产品\"] = \"合计\" # 写回 Excel with pd.ExcelWriter(\"sales_report.xlsx\") as writer: df.to_excel(writer, sheet_name=\"明细\", index=False) summary.to_excel(writer, sheet_name=\"汇总\", index=False) print(\"报表已生成：sales_report.xlsx\") 11.5 实战②：CSV 数据清洗 原始数据常常很脏：\nimport pandas as pd df = pd.read_csv(\"dirty_data.csv\", encoding=\"utf-8\") print(\"清洗前：\") print(f\"行数：{len(df)}\") print(f\"重复行：{df.duplicated().sum()}\") print(f\"缺失值：\\n{df.isnull().sum()}\") # 去重 df = df.drop_duplicates() # 处理缺失值 df[\"年龄\"] = df[\"年龄\"].fillna(df[\"年龄\"].median()) # 用中位数填 df[\"城市\"] = df[\"城市\"].fillna(\"未知\") # 去除异常值（比如年龄不能是负数或超过 150） df = df[(df[\"年龄\"] \u003e 0) \u0026 (df[\"年龄\"] \u003c 150)] # 统一格式：城市名首字母大写 df[\"城市\"] = df[\"城市\"].str.strip().str.title() print(f\"\\n清洗后行数：{len(df)}\") df.to_csv(\"clean_data.csv\", index=False, encoding=\"utf-8-sig\") 11.6 实战③：多表关联（VLOOKUP 替代） # 员工表 employees = pd.DataFrame({ \"员工ID\": [1, 2, 3, 4], \"姓名\": [\"张三\", \"李四\", \"王五\", \"赵六\"], \"部门ID\": [101, 102, 101, 103] }) # 部门表 departments = pd.DataFrame({ \"部门ID\": [101, 102, 103], \"部门名\": [\"技术部\", \"市场部\", \"人事部\"] }) # 关联（相当于 Excel 的 VLOOKUP） result = employees.merge(departments, on=\"部门ID\", how=\"left\") print(result) 员工ID 姓名 部门ID 部门名 0 1 张三 101 技术部 1 2 李四 102 市场部 2 3 王五 101 技术部 3 4 赵六 103 人事部 how=\"left\" 表示以左表（employees）为准。其他选项：\"inner\"（交集）、\"right\"（以右表为准）、\"outer\"（并集）。\n11.7 数据可视化 pip install matplotlib import pandas as pd import matplotlib.pyplot as plt # 准备数据 df = pd.DataFrame({ \"月份\": [\"1月\", \"2月\", \"3月\", \"4月\", \"5月\", \"6月\"], \"销售额\": [120, 135, 148, 162, 155, 180] }) # 设置中文字体（Windows 用 SimHei，Mac 用 Arial Unicode MS） plt.rcParams[\"font.sans-serif\"] = [\"SimHei\", \"Arial Unicode MS\", \"DejaVu Sans\"] plt.rcParams[\"axes.unicode_minus\"] = False # 画图 plt.figure(figsize=(10, 5)) plt.plot(df[\"月份\"], df[\"销售额\"], marker=\"o\", linewidth=2) plt.title(\"上半年销售额趋势\") plt.xlabel(\"月份\") plt.ylabel(\"销售额（万元）\") plt.grid(True, alpha=0.3) # 保存 plt.savefig(\"sales_trend.png\", dpi=150, bbox_inches=\"tight\") plt.show() 📝 本章练习 创建一个 10 行 × 5 列的随机数据 DataFrame，计算每列的均值、最大值、最小值。 从一个 CSV 里读入数据，筛选出符合某一条件的行，写到一个新 CSV。 用 pandas 读一个 Excel，按某一列分组求和，画一个柱状图。 👉 下一章：自动化脚本 —— 让计算机替你干活\n","wordCount":"471","inLanguage":"en","datePublished":"2026-05-30T00:00:00Z","dateModified":"2026-05-30T00:00:00Z","author":{"@type":"Person","name":"cujohe"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://cujohe.github.io/blog/posts/python/11-data-processing/"},"publisher":{"@type":"Organization","name":"Cujohe's Blog","logo":{"@type":"ImageObject","url":"https://cujohe.github.io/blog/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=header-nav><div class=logo><a href=https://cujohe.github.io/blog/ accesskey=h title="Cujohe's Blog (Alt + H)">Cujohe's Blog</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">第十一章：数据处理</h1><div class=post-meta><span title='2026-05-30 00:00:00 +0000 UTC'>May 30, 2026</span>&nbsp;·&nbsp;<span>cujohe</span></div></header><div class="post-content md-content"><h2 id=111-python-vs-excel>11.1 Python vs Excel<a hidden class=anchor aria-hidden=true href=#111-python-vs-excel>#</a></h2><table><thead><tr><th>场景</th><th>Excel</th><th>Python</th></tr></thead><tbody><tr><td>几百行数据，做个图表</td><td>✅ 适合</td><td>杀鸡用牛刀</td></tr><tr><td>几万行数据，多表关联</td><td>卡到崩溃</td><td>✅ 秒出结果</td></tr><tr><td>每个月做同样的报表</td><td>手动操作</td><td>✅ 脚本一次写完，月月自动跑</td></tr><tr><td>数据来源是 API/数据库</td><td>不好搞</td><td>✅ 直接读</td></tr></tbody></table><blockquote><p>💡 <strong>Python 不是要替代 Excel，而是做 Excel 做不了的事儿。</strong></p></blockquote><hr><h2 id=112-pandas数据分析的瑞士军刀>11.2 pandas：数据分析的瑞士军刀<a hidden class=anchor aria-hidden=true href=#112-pandas数据分析的瑞士军刀>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>pip install pandas openpyxl
+</span></span></code></pre></div><p>pandas 的核心概念就两个：</p><ul><li><strong>Series</strong>：一列数据（带行标签）</li><li><strong>DataFrame</strong>：一张表（多列 Series 拼在一起）</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 从字典创建 DataFrame</span>
+</span></span><span style=display:flex><span>data <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;姓名&#34;</span>: [<span style=color:#e6db74>&#34;张三&#34;</span>, <span style=color:#e6db74>&#34;李四&#34;</span>, <span style=color:#e6db74>&#34;王五&#34;</span>, <span style=color:#e6db74>&#34;赵六&#34;</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;年龄&#34;</span>: [<span style=color:#ae81ff>25</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>28</span>, <span style=color:#ae81ff>35</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;城市&#34;</span>: [<span style=color:#e6db74>&#34;北京&#34;</span>, <span style=color:#e6db74>&#34;上海&#34;</span>, <span style=color:#e6db74>&#34;广州&#34;</span>, <span style=color:#e6db74>&#34;深圳&#34;</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;工资&#34;</span>: [<span style=color:#ae81ff>15000</span>, <span style=color:#ae81ff>20000</span>, <span style=color:#ae81ff>18000</span>, <span style=color:#ae81ff>25000</span>]
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>DataFrame(data)
+</span></span><span style=display:flex><span>print(df)
+</span></span></code></pre></div><pre tabindex=0><code>   姓名  年龄  城市    工资
+0  张三  25  北京  15000
+1  李四  30  上海  20000
+2  王五  28  广州  18000
+3  赵六  35  深圳  25000
+</code></pre><hr><h2 id=113-dataframe-基本操作>11.3 DataFrame 基本操作<a hidden class=anchor aria-hidden=true href=#113-dataframe-基本操作>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 查看基本信息</span>
+</span></span><span style=display:flex><span>df<span style=color:#f92672>.</span>head(<span style=color:#ae81ff>2</span>)           <span style=color:#75715e># 前两行</span>
+</span></span><span style=display:flex><span>df<span style=color:#f92672>.</span>shape             <span style=color:#75715e># (4, 4) — 4 行 4 列</span>
+</span></span><span style=display:flex><span>df<span style=color:#f92672>.</span>info()            <span style=color:#75715e># 每列的数据类型和非空数量</span>
+</span></span><span style=display:flex><span>df<span style=color:#f92672>.</span>describe()        <span style=color:#75715e># 数值列的统计摘要（均值、标准差等）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 选择列</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;姓名&#34;</span>]           <span style=color:#75715e># 返回 Series</span>
+</span></span><span style=display:flex><span>df[[<span style=color:#e6db74>&#34;姓名&#34;</span>, <span style=color:#e6db74>&#34;工资&#34;</span>]]  <span style=color:#75715e># 返回 DataFrame（多列）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 筛选行</span>
+</span></span><span style=display:flex><span>df[df[<span style=color:#e6db74>&#34;年龄&#34;</span>] <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>28</span>]              <span style=color:#75715e># 年龄大于 28 的</span>
+</span></span><span style=display:flex><span>df[df[<span style=color:#e6db74>&#34;城市&#34;</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;北京&#34;</span>]          <span style=color:#75715e># 北京的员工</span>
+</span></span><span style=display:flex><span>df[(df[<span style=color:#e6db74>&#34;年龄&#34;</span>] <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>25</span>) <span style=color:#f92672>&amp;</span> (df[<span style=color:#e6db74>&#34;工资&#34;</span>] <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>18000</span>)]  <span style=color:#75715e># 两个条件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 排序</span>
+</span></span><span style=display:flex><span>df<span style=color:#f92672>.</span>sort_values(<span style=color:#e6db74>&#34;工资&#34;</span>, ascending<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)  <span style=color:#75715e># 按工资降序</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 新增列</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;年薪&#34;</span>] <span style=color:#f92672>=</span> df[<span style=color:#e6db74>&#34;工资&#34;</span>] <span style=color:#f92672>*</span> <span style=color:#ae81ff>12</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;高薪&#34;</span>] <span style=color:#f92672>=</span> df[<span style=color:#e6db74>&#34;工资&#34;</span>] <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>18000</span>  <span style=color:#75715e># 自动变成布尔列</span>
+</span></span></code></pre></div><hr><h2 id=114-实战从-excel-读取处理后写回>11.4 实战①：从 Excel 读取，处理后写回<a hidden class=anchor aria-hidden=true href=#114-实战从-excel-读取处理后写回>#</a></h2><p>假设有一个 <code>sales.xlsx</code>：</p><table><thead><tr><th>日期</th><th>产品</th><th>数量</th><th>单价</th></tr></thead><tbody><tr><td>2024-01-01</td><td>A</td><td>10</td><td>100</td></tr><tr><td>2024-01-02</td><td>B</td><td>5</td><td>200</td></tr><tr><td>&mldr;</td><td>&mldr;</td><td>&mldr;</td><td>&mldr;</td></tr></tbody></table><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 读 Excel</span>
+</span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>read_excel(<span style=color:#e6db74>&#34;sales.xlsx&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 计算销售额</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;销售额&#34;</span>] <span style=color:#f92672>=</span> df[<span style=color:#e6db74>&#34;数量&#34;</span>] <span style=color:#f92672>*</span> df[<span style=color:#e6db74>&#34;单价&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 按产品汇总</span>
+</span></span><span style=display:flex><span>summary <span style=color:#f92672>=</span> df<span style=color:#f92672>.</span>groupby(<span style=color:#e6db74>&#34;产品&#34;</span>)<span style=color:#f92672>.</span>agg(
+</span></span><span style=display:flex><span>    总销量<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#34;数量&#34;</span>, <span style=color:#e6db74>&#34;sum&#34;</span>),
+</span></span><span style=display:flex><span>    总销售额<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#34;销售额&#34;</span>, <span style=color:#e6db74>&#34;sum&#34;</span>),
+</span></span><span style=display:flex><span>    平均单价<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#34;单价&#34;</span>, <span style=color:#e6db74>&#34;mean&#34;</span>)
+</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span>reset_index()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 加一行「合计」</span>
+</span></span><span style=display:flex><span>summary<span style=color:#f92672>.</span>loc[<span style=color:#e6db74>&#34;合计&#34;</span>] <span style=color:#f92672>=</span> summary<span style=color:#f92672>.</span>select_dtypes(include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;number&#34;</span>)<span style=color:#f92672>.</span>sum()
+</span></span><span style=display:flex><span>summary<span style=color:#f92672>.</span>at[<span style=color:#e6db74>&#34;合计&#34;</span>, <span style=color:#e6db74>&#34;产品&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;合计&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 写回 Excel</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>with</span> pd<span style=color:#f92672>.</span>ExcelWriter(<span style=color:#e6db74>&#34;sales_report.xlsx&#34;</span>) <span style=color:#66d9ef>as</span> writer:
+</span></span><span style=display:flex><span>    df<span style=color:#f92672>.</span>to_excel(writer, sheet_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;明细&#34;</span>, index<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    summary<span style=color:#f92672>.</span>to_excel(writer, sheet_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;汇总&#34;</span>, index<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;报表已生成：sales_report.xlsx&#34;</span>)
+</span></span></code></pre></div><hr><h2 id=115-实战csv-数据清洗>11.5 实战②：CSV 数据清洗<a hidden class=anchor aria-hidden=true href=#115-实战csv-数据清洗>#</a></h2><p>原始数据常常很脏：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>read_csv(<span style=color:#e6db74>&#34;dirty_data.csv&#34;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;清洗前：&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;行数：</span><span style=color:#e6db74>{</span>len(df)<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;重复行：</span><span style=color:#e6db74>{</span>df<span style=color:#f92672>.</span>duplicated()<span style=color:#f92672>.</span>sum()<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;缺失值：</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>{</span>df<span style=color:#f92672>.</span>isnull()<span style=color:#f92672>.</span>sum()<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 去重</span>
+</span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> df<span style=color:#f92672>.</span>drop_duplicates()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 处理缺失值</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;年龄&#34;</span>] <span style=color:#f92672>=</span> df[<span style=color:#e6db74>&#34;年龄&#34;</span>]<span style=color:#f92672>.</span>fillna(df[<span style=color:#e6db74>&#34;年龄&#34;</span>]<span style=color:#f92672>.</span>median())  <span style=color:#75715e># 用中位数填</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;城市&#34;</span>] <span style=color:#f92672>=</span> df[<span style=color:#e6db74>&#34;城市&#34;</span>]<span style=color:#f92672>.</span>fillna(<span style=color:#e6db74>&#34;未知&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 去除异常值（比如年龄不能是负数或超过 150）</span>
+</span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> df[(df[<span style=color:#e6db74>&#34;年龄&#34;</span>] <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>) <span style=color:#f92672>&amp;</span> (df[<span style=color:#e6db74>&#34;年龄&#34;</span>] <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>150</span>)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 统一格式：城市名首字母大写</span>
+</span></span><span style=display:flex><span>df[<span style=color:#e6db74>&#34;城市&#34;</span>] <span style=color:#f92672>=</span> df[<span style=color:#e6db74>&#34;城市&#34;</span>]<span style=color:#f92672>.</span>str<span style=color:#f92672>.</span>strip()<span style=color:#f92672>.</span>str<span style=color:#f92672>.</span>title()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>清洗后行数：</span><span style=color:#e6db74>{</span>len(df)<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>df<span style=color:#f92672>.</span>to_csv(<span style=color:#e6db74>&#34;clean_data.csv&#34;</span>, index<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8-sig&#34;</span>)
+</span></span></code></pre></div><hr><h2 id=116-实战多表关联vlookup-替代>11.6 实战③：多表关联（VLOOKUP 替代）<a hidden class=anchor aria-hidden=true href=#116-实战多表关联vlookup-替代>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 员工表</span>
+</span></span><span style=display:flex><span>employees <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>DataFrame({
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;员工ID&#34;</span>: [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;姓名&#34;</span>: [<span style=color:#e6db74>&#34;张三&#34;</span>, <span style=color:#e6db74>&#34;李四&#34;</span>, <span style=color:#e6db74>&#34;王五&#34;</span>, <span style=color:#e6db74>&#34;赵六&#34;</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;部门ID&#34;</span>: [<span style=color:#ae81ff>101</span>, <span style=color:#ae81ff>102</span>, <span style=color:#ae81ff>101</span>, <span style=color:#ae81ff>103</span>]
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 部门表</span>
+</span></span><span style=display:flex><span>departments <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>DataFrame({
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;部门ID&#34;</span>: [<span style=color:#ae81ff>101</span>, <span style=color:#ae81ff>102</span>, <span style=color:#ae81ff>103</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;部门名&#34;</span>: [<span style=color:#e6db74>&#34;技术部&#34;</span>, <span style=color:#e6db74>&#34;市场部&#34;</span>, <span style=color:#e6db74>&#34;人事部&#34;</span>]
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 关联（相当于 Excel 的 VLOOKUP）</span>
+</span></span><span style=display:flex><span>result <span style=color:#f92672>=</span> employees<span style=color:#f92672>.</span>merge(departments, on<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;部门ID&#34;</span>, how<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;left&#34;</span>)
+</span></span><span style=display:flex><span>print(result)
+</span></span></code></pre></div><pre tabindex=0><code>   员工ID  姓名  部门ID  部门名
+0      1  张三    101  技术部
+1      2  李四    102  市场部
+2      3  王五    101  技术部
+3      4  赵六    103  人事部
+</code></pre><p><code>how="left"</code> 表示以左表（employees）为准。其他选项：<code>"inner"</code>（交集）、<code>"right"</code>（以右表为准）、<code>"outer"</code>（并集）。</p><hr><h2 id=117-数据可视化>11.7 数据可视化<a hidden class=anchor aria-hidden=true href=#117-数据可视化>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>pip install matplotlib
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> matplotlib.pyplot <span style=color:#66d9ef>as</span> plt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 准备数据</span>
+</span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>DataFrame({
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;月份&#34;</span>: [<span style=color:#e6db74>&#34;1月&#34;</span>, <span style=color:#e6db74>&#34;2月&#34;</span>, <span style=color:#e6db74>&#34;3月&#34;</span>, <span style=color:#e6db74>&#34;4月&#34;</span>, <span style=color:#e6db74>&#34;5月&#34;</span>, <span style=color:#e6db74>&#34;6月&#34;</span>],
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;销售额&#34;</span>: [<span style=color:#ae81ff>120</span>, <span style=color:#ae81ff>135</span>, <span style=color:#ae81ff>148</span>, <span style=color:#ae81ff>162</span>, <span style=color:#ae81ff>155</span>, <span style=color:#ae81ff>180</span>]
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 设置中文字体（Windows 用 SimHei，Mac 用 Arial Unicode MS）</span>
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>rcParams[<span style=color:#e6db74>&#34;font.sans-serif&#34;</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;SimHei&#34;</span>, <span style=color:#e6db74>&#34;Arial Unicode MS&#34;</span>, <span style=color:#e6db74>&#34;DejaVu Sans&#34;</span>]
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>rcParams[<span style=color:#e6db74>&#34;axes.unicode_minus&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 画图</span>
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>figure(figsize<span style=color:#f92672>=</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>5</span>))
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>plot(df[<span style=color:#e6db74>&#34;月份&#34;</span>], df[<span style=color:#e6db74>&#34;销售额&#34;</span>], marker<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;o&#34;</span>, linewidth<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>title(<span style=color:#e6db74>&#34;上半年销售额趋势&#34;</span>)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>xlabel(<span style=color:#e6db74>&#34;月份&#34;</span>)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>ylabel(<span style=color:#e6db74>&#34;销售额（万元）&#34;</span>)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>grid(<span style=color:#66d9ef>True</span>, alpha<span style=color:#f92672>=</span><span style=color:#ae81ff>0.3</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 保存</span>
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>savefig(<span style=color:#e6db74>&#34;sales_trend.png&#34;</span>, dpi<span style=color:#f92672>=</span><span style=color:#ae81ff>150</span>, bbox_inches<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;tight&#34;</span>)
+</span></span><span style=display:flex><span>plt<span style=color:#f92672>.</span>show()
+</span></span></code></pre></div><hr><h2 id=-本章练习>📝 本章练习<a hidden class=anchor aria-hidden=true href=#-本章练习>#</a></h2><ol><li>创建一个 10 行 × 5 列的随机数据 DataFrame，计算每列的均值、最大值、最小值。</li><li>从一个 CSV 里读入数据，筛选出符合某一条件的行，写到一个新 CSV。</li><li>用 pandas 读一个 Excel，按某一列分组求和，画一个柱状图。</li></ol><hr><p>👉 下一章：<a href=12-automation.md><strong>自动化脚本</strong></a> —— 让计算机替你干活</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://cujohe.github.io/blog/tags/python/>Python</a></li><li><a href=https://cujohe.github.io/blog/tags/tutorial/>Tutorial</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://cujohe.github.io/blog/>Cujohe's Blog</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
