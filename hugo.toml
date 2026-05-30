@@ -3,17 +3,36 @@ languageCode = "zh-cn"
 title = "Cujohe's Blog"
 theme = "PaperMod"
 
+# PaperMod: 首页展示这些 section 的文章
+mainSections = ["python", "deepteam"]
+
 [params]
   description = "学习、思考、记录"
   author = "cujohe"
 
+  # 首页
   [params.homeInfoParams]
     Title = "Hi there 👋"
     Content = "记录学习与思考。由 Obsidian 驱动，Hugo 构建。"
 
+  # 社交图标
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/cujohe"
+
+  # 顶部导航
+  [params.mainSectionsTitles]
+    python = "🐍 Python 完全教程"
+    deepteam = "🔴 DeepTeam 红队测试"
+
+  # 开启面包屑
+  ShowBreadCrumbs = true
+  # 文章列表显示分类标签
+  ShowPostNavLinks = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
 
 [markup.goldmark.renderer]
   unsafe = true

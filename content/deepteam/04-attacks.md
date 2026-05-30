@@ -1,6 +1,7 @@
 ---
 title: "第4章：攻击技术"
 date: 2026-05-30
+categories: ["红队测试"]
 tags: ["ai", "security", "red-teaming"]
 series: ["DeepTeam: LLM 红队测试"]
 weight: 4

@@ -1,6 +1,7 @@
 ---
 title: "第6章：防护栏（Guardrails）"
 date: 2026-05-30
+categories: ["红队测试"]
 tags: ["ai", "security", "red-teaming"]
 series: ["DeepTeam: LLM 红队测试"]
 weight: 6

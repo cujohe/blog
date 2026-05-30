@@ -1,6 +1,7 @@
 ---
 title: "第十一章：数据处理"
 date: 2026-05-30
+categories: ["Python 教程"]
 tags: ["python", "tutorial"]
 series: ["Python 完全教程"]
 weight: 11

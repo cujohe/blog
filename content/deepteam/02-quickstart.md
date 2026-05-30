@@ -1,6 +1,7 @@
 ---
 title: "第2章：快速开始"
 date: 2026-05-30
+categories: ["红队测试"]
 tags: ["ai", "security", "red-teaming"]
 series: ["DeepTeam: LLM 红队测试"]
 weight: 2

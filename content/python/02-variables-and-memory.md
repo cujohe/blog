@@ -1,6 +1,7 @@
 ---
 title: "第二章：变量与内存"
 date: 2026-05-30
+categories: ["Python 教程"]
 tags: ["python", "tutorial"]
 series: ["Python 完全教程"]
 weight: 2
