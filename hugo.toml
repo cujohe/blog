@@ -4,7 +4,7 @@ title = "Cujohe's Blog"
 theme = "PaperMod"
 
 # PaperMod: 首页展示这些 section 的文章
-mainSections = ["python", "deepteam"]
+mainSections = ["python", "deepteam", "java"]
 
 [params]
   description = "学习、思考、记录"
@@ -23,6 +23,10 @@ mainSections = ["python", "deepteam"]
     [[params.profileMode.buttons]]
       name = "🔴 DeepTeam 红队测试"
       url = "/blog/deepteam/"
+
+    [[params.profileMode.buttons]]
+      name = "☕ Java 从零开始"
+      url = "/blog/java/"
 
   # 社交图标
   [[params.socialIcons]]
