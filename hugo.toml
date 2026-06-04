@@ -3,7 +3,7 @@ languageCode = "zh-cn"
 title = "Cujohe's Blog"
 theme = "PaperMod"
 
-mainSections = ["python", "deepteam", "java"]
+mainSections = ["python", "deepteam", "java", "consumer"]
 
 [params]
   description = "学习、思考、记录"
@@ -32,6 +32,10 @@ mainSections = ["python", "deepteam", "java"]
     [[params.profileMode.buttons]]
       name = "🔴 DeepTeam 红队测试"
       url = "/blog/deepteam/"
+
+    [[params.profileMode.buttons]]
+      name = "🛒 消费科普"
+      url = "/blog/consumer/"
 
   # ========== 社交图标 ==========
   [[params.socialIcons]]
